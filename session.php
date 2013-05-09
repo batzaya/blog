@@ -1,8 +1,8 @@
 <?php
 session_start();
 $connect = mysqli_connect("localhost","root","","blog");
-//$query = "SELECT * FROM admin";
-$result = mysqli_query($connect,"SELECT * FROM admin");
+$query = "SELECT * FROM admin";
+$result = mysqli_query($connect, $query);
 if (isset($_GET['logout'])){
     unset($_SESSION['logged_in']);
     $message = "ta garsan bna";
