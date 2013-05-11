@@ -1,0 +1,114 @@
+textarea
+{
+margin-left: 50px;
+height: 300px;
+margin-top: 10px;
+width: 600px;
+background-color: #DDDDDD;
+border-radius: 4px;
+border:1px solid #cccccc;
+}
+#garchig
+{
+width: 600px; 
+margin-left: 5px;
+background-color: #DDDDDD;
+border-radius: 4px;
+border:1px solid #cccccc;
+}
+#sub
+{
+border-radius: 4px;
+margin-left: 50px;
+margin-top: 10px;
+width: 150px;
+border:1px solid #555555;
+}
+body,span
+{
+background-size: 1350px,700px;
+font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+}
+form span
+{
+font-size: 14px;
+position: absolute;
+margin-left: -1px;
+}
+#header
+{
+height:60px;
+width:1367px;
+text-align: center;
+text-decoration: none;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(70%,#3366ff), color-stop(40%,blue));
+margin: -10px;
+}
+a div
+{
+float :left;
+height:40px;
+width: 200px;
+margin-left: 140px;
+float: left;
+padding-top: 20px;
+}
+a div:hover
+{
+color:#11ffff; 
+}
+a div
+{
+color:white; 
+text-decoration: none;
+font-size: 17px;
+}
+form
+{
+margin-top: 50px;
+margin-left: 185px;
+}
+#container
+{
+margin-left: 200px;
+margin-top: 50px;
+text-align: justify;
+word-wrap:break-word;
+width: 800px;
+}
+span
+{
+font-size: 9px;
+position: absolute;
+margin-top: 5px;
+margin-left: 2px;
+}
+ul
+{
+margin-left: 200px;
+font-size: 12px;
+padding-top: 1px;
+text-align: justify;
+word-wrap:break-word;
+width: 200px;
+}
+li
+{
+list-style-type: NONE;
+margin-top: 5px;
+}
+#zaavar
+{
+margin-left: 140px;
+padding-left: 100px;
+width: 350px;
+margin-top: 30px;
+}
+input[type="submit"]
+{
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,gray), color-stop(87%,black));
+color: #cccccc;
+padding-top: 3px;
+padding-bottom: 5px;
+}

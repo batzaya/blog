@@ -1,19 +1,23 @@
 <?php
     function connection()
     {
-        $con = mysqli_connect("localhost","root","","blog");
-        return $con;
+        $con = mysqli_connect("localhost","root","123","blog");
+        if(mysqli_connect_errno($con))
+        {
+            echo "Failed to connect MySQL: " . mysqli_connect_error();
+        }
+            return $con;
     }
     function sql_close()
     {
         mysqli_close($con);
     }
-    function insert($con)
+    function add_post($con)
     {
-        $query = "INSERT INTO posts (garchig, myPost, time) VALUES ('".$_POST["garchig"]."', '".$_POST["myText"]."', '".date("Y-m-d H:i:s")."')";
+        $query = "INSERT INTO posts (garchig, myPost, time) VALUES ('".$_POST["garchig"]."', '".$_POST["myPost"]."', '".date("Y-m-d H:i:s")."')";
         mysqli_query($con,$query);
     }
-    function show()
+    function get_all_posts()
     {
         $result = array();
         $table = mysqli_query(connection(),"SELECT * FROM posts ORDER BY time DESC");
