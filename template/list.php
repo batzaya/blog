@@ -1,10 +1,5 @@
 <?php ob_start();?>
-    <div id = "header">
-        <a href = "/Blog/blog/index.php/add">
-            <div > Home </div>
-        </a>
-    </div>
-    <?php foreach ($rows as $row ):?>
+       <?php foreach ($rows as $row ):?>
         <div id = "container"> 
             <h3>
                 <?php echo $row['garchig'];?><br/>
