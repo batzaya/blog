@@ -7,13 +7,13 @@
     </head>
     <body>
          <div id = "header">
-        <a href="/index.php/add">
+        <a href="/blog/index.php/add">
             <div > Home </div>
         </a>
-        <a href="/index.php/edit">
+        <a href="/blog/index.php/edit">
             <div > Edit </div>
         </a>
-        <a href="/index.php/delete">
+        <a href="/blog/index.php/delete">
             <div > Delete </div>
         </a>
     </div>
