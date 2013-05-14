@@ -1,0 +1,3 @@
+add_post:
+    path:   /add
+    defaults: { _controller: AcmeAdminBundle:Admin:addPost }

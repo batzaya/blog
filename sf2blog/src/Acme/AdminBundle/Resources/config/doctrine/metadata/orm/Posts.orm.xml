@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Posts" table="posts">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="garchig" type="string" column="garchig" length="255" nullable="false"/>
+    <field name="mypost" type="text" column="myPost" nullable="false"/>
+    <field name="time" type="date" column="time" nullable="false"/>
+  </entity>
+</doctrine-mapping>
