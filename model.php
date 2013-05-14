@@ -12,11 +12,6 @@
     {
         mysqli_close($con);
     }
-    function add_post($con)
-    {
-        $query = "INSERT INTO posts (garchig, myPost, time) VALUES ('".$_POST["garchig"]."', '".$_POST["myPost"]."', '".date("Y-m-d H:i:s")."')";
-        mysqli_query($con,$query);
-    }
     function get_all_posts()
     {
         $result = array();
@@ -32,6 +27,8 @@
     }
     function update()
     {
-        mysqli_query(connection(),"UPDATE posts SET garchig = ' ".addslashes($_POST['garchig'])." ', myPost = ' ".addslashes($_POST['myText'])." ' where ID = ".$_GET['n']);
+        mysqli_query(connection(),"UPDATE posts SET garchig = '
+            ".addslashes($_POST['garchig'])." ', myPost = '
+            ".addslashes($_POST['myPost'])." ' where ID = ".$_GET['n']);
     }
 ?>
