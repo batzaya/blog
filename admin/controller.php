@@ -16,14 +16,27 @@ function render($template, $args){
 
 
 function login(){
-    if (!(isset($_SESSION['name']) && $_SESSION['name'])) {
-        if ($_POST['login']) {
-            login_admin($_POST['name'], $_POST['password']);
-        } else {
-            render('login', array());
+    /*
+    if (is_logged_in()){
+        list_of_posts(); // show homepage
+        return;
+    }
+     */
+    /*
+    if (!(isset($_SESSION['name']) && $_SESSION['name'])) {  // TODO is_logged_in
+    }
+     */
+    if ($_POST['login']) {
+        $login_ok = user_exists($_POST['name'], $_POST['password']);
+        if ($login_ok){
+            list_of_posts(); // show homepage
+            return;
+        }else{
+            $error_msg =  'login error';
         }
     }
-    return $_SESSION['name'];
+    render('login', array());
+    return $_SESSION['name']; // TODO is_logged_in
 }
 
 

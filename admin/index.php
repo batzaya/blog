@@ -6,6 +6,14 @@ require_once($dir.'/../model.php');
 require_once($dir.'/controller.php');
 
 
+/*
+if (is_logged_in()){
+//Нууцлалтай хуудаснуудаас тохирохыг нь сонгож харуулна
+}else{
+// Нэвтрэх хуудас үзүүлнэ
+    login();
+}
+*/
 if (login()){
     function uri_is($uri){
         $requested_uri = $_SERVER['PHP_SELF'];
