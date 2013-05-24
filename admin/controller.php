@@ -15,6 +15,25 @@ function render($template, $args){
 }
 
 
+function login(){
+    if (!(isset($_SESSION['name']) && $_SESSION['name'])) {
+        if ($_POST['login']) {
+            login_admin($_POST['name'], $_POST['password']);
+        } else {
+            render('login', array());
+        }
+    }
+    return $_SESSION['name'];
+}
+
+
+function logout()
+{
+    render('logout');
+    session_destroy();
+}
+
+
 function list_of_post(){
     $posts = get_all_posts();
     render('list', array('posts' => $posts));
@@ -42,5 +61,33 @@ function edit_post($id){
 function remove_post($id){
     delete_post($id);
     header('Location: '.admin_uri(''));
+}
+
+function admins_list(){
+    $admins = get_all_admins();
+    render('list_admins', array('admins' => $admins));
+}
+
+function add_admin(){
+    if ($_POST) {
+        create_admin($_POST['username'], $_POST['password']);
+        header('Location: '.admin_uri('/Admin'));
+    }
+    render('add_admin', array());
+}
+
+
+function admin_edit($id){
+    if($_POST){
+        update_admin($id);
+        header('Location: '.admin_uri('/Admin'));
+    }
+    render('edit_admin', array('admin' => get_admin_by_id($id)));
+}
+
+
+function admin_delete($id){
+    delete_admin($id);
+    header('Location: '.admin_uri('/Admin'));
 }
 ?>
