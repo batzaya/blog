@@ -4,26 +4,28 @@ function admin_uri($uri){
 }
 
 
-function render($template, $args){
-    foreach ($args as $key => $value){
-        $$key = $value;
+function login(){
+    if ($_POST['login']) {
+        $login_ok = user_exists($_POST['name'], $_POST['password']);
+        if($login_ok[0]){
+            $_SESSION['login'] = true;
+            list_of_post();
+            break;
+        }
+        else{
+            $error_msg = "Таны нэр эсвэл нууц үг буруу байна.";
+        }
     }
-    ob_start();
-    require_once(dirname(__FILE__).'/template/'.$template.'.php');
-    $content = ob_get_clean();
-    require_once(dirname(__FILE__).'/template/layout.php');
+    require_once('./template/login.php');
 }
 
 
-function login(){
-    if (!(isset($_SESSION['name']) && $_SESSION['name'])) {
-        if ($_POST['login']) {
-            login_admin($_POST['name'], $_POST['password']);
-        } else {
-            render('login', array());
-        }
+function is_logged_in(){
+    if ((isset($_SESSION['login']) && $_SESSION['login'])){
+        return True;
+    }else{
+        return False;
     }
-    return $_SESSION['name'];
 }
 
 
@@ -71,7 +73,7 @@ function admins_list(){
 function add_admin(){
     if ($_POST) {
         create_admin($_POST['username'], $_POST['password']);
-        header('Location: '.admin_uri('/Admin'));
+        header('Location: '.admin_uri('/admin'));
     }
     render('add_admin', array());
 }
@@ -80,7 +82,7 @@ function add_admin(){
 function admin_edit($id){
     if($_POST){
         update_admin($id);
-        header('Location: '.admin_uri('/Admin'));
+        header('Location: '.admin_uri('/admin'));
     }
     render('edit_admin', array('admin' => get_admin_by_id($id)));
 }
@@ -88,6 +90,6 @@ function admin_edit($id){
 
 function admin_delete($id){
     delete_admin($id);
-    header('Location: '.admin_uri('/Admin'));
+    header('Location: '.admin_uri('/admin'));
 }
 ?>

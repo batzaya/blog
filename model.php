@@ -1,4 +1,17 @@
 <?php
+//create table
+$con = connection();
+$sql = "CREATE TABLE posts 
+(
+    id INT NOT NULL AUTO_INCREMENT, 
+    PRIMARY KEY(id),
+    title CHAR(100),
+    post TEXT,
+    time DATETIME
+)";
+mysqli_query($con,$sql); 
+
+
 function connection(){
     $con = mysqli_connect("localhost", "root", "123", "blog");
     if(mysqli_connect_errno($con)){
@@ -65,15 +78,13 @@ function update_post($id){
 }
 
 
-function login_admin($name, $password) {
+function user_exists($name, $password) {
     $query = "SELECT COUNT(*) FROM admin 
              WHERE name='".$name."' AND password='".$password."'";
-    $result = mysqli_query(connection(), $query) or die("end aldaatai bna");
+    $result = mysqli_query(connection(), $query);
 
     $count = mysqli_fetch_array($result);
-    if ($count[0]) {
-        $_SESSION['name'] = true;
-    }
+    return $count;
 }
 
 
@@ -99,10 +110,9 @@ function create_admin($name,$pass){
 
 function update_admin($id)
 {
-    $query = "UPDATE admin SET name = '%s', password = '%s' WHERE id=%s";
+    $query = "UPDATE admin SET name = '%s' WHERE id=%s";
     $sql = sprintf($query,
                    addslashes($_POST['username']),
-                   addslashes($_POST['password']),
                    $id);
     mysqli_query(connection(), $sql);
 

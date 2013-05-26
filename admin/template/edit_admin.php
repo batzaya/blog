@@ -6,7 +6,7 @@
         </tr>
         <tr>
             <td><label>Нууц үг:</label></td>
-            <td><input type="password" value="<?php echo $admin['password']?>" name="password"></td>
+            <td><input type="password" name="password"></td>
         </tr>
         <tr>
             <td></td>
