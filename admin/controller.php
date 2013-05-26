@@ -29,8 +29,7 @@ function is_logged_in(){
 }
 
 
-function logout()
-{
+function logout(){
     render('logout');
     session_destroy();
 }
